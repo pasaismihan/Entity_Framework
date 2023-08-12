@@ -17,3 +17,22 @@
 // Kod uzerinden veritabanini modellememizi saglar demistik bu migration islemi databaseye bagliligi azaldir , veritabanina dokunmadan kod uzerinden guncelleme yapilmasini saglar
 // bu durumda yonetim gelistirici tarafindadir , bu yuzden hicbir veritabani bilgisine ihtiyac duymaz  
 #endregion
+#region EF Core Aktorleri
+// EF core da veritabanini temsil edecek olan sinif DbContext dir
+// bir classin veritabanina karsilik gelen DbContext olabilmesi icin tek basina sinif olarak tanimlamamiz yeterli degildir . bunun icin Microsoft.EntityFrameworkCore namespacesindeki DbContext den kalitim almalidir
+// public class NorthwindDbContext : DbContext seklinde olmalidir
+// ef core da veritabanindaki tablolari temsil edecek classlari ifade etmeye entity(varlik) denir . her bir tabloyu olusturan class ayri ayri entity lerdir . bu entity siniflarinin adi tekil olmalidir (ornegin tabloda employees olsa bile entity de employee olmalidir)
+// tum entity siniflari DbContext sinifi icerisine DbSet olarak eklenmelidir . ornek olarak DbSet<Employee> = Employees{get; set;}
+// yukarida sunu demis oluyoruz veritabaninda bu entity(DbSet<T>) var ve buna karsilik gelen tabloyu property olarak temsil eder. Propery ler cogul yazilir entity gibi tekil degildir
+// bir entity deki kolonlari tanimlamak istersek bunlari propery olarak tanimliyoruz
+/* bir tablo ve kolon un kod tarafindaki entity ve property olarak kullanimi asagidaki gibidir
+public class Costumer
+{
+    public string name { get; set; }
+    public int costumerId { get; set; }
+    public string surname { get; set; }
+}
+*/
+//Veritabanindaki veriler de entity lerin instancelarina karsilik gelmektedir. yani Costumers entity si oldugunu varsayarsak bu tablonun her bir satirini new Costumer(); seklinde instance alarak olustururuz bunlar da verileri temsil etmektedir
+//her yaptigimiz new Costumer(); instance i bir alt satiri temsil etmektedir
+#endregion

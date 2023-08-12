@@ -1,0 +1,5 @@
+/Users/pasa/Entity_Framework/EF Core/obj/Debug/net7.0/EF Core.csproj.AssemblyReference.cache
+/Users/pasa/Entity_Framework/EF Core/obj/Debug/net7.0/EF Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/pasa/Entity_Framework/EF Core/obj/Debug/net7.0/EF Core.AssemblyInfoInputs.cache
+/Users/pasa/Entity_Framework/EF Core/obj/Debug/net7.0/EF Core.AssemblyInfo.cs
+/Users/pasa/Entity_Framework/EF Core/obj/Debug/net7.0/EF Core.csproj.CoreCompileInputs.cache
