@@ -12,5 +12,8 @@
 // birde herbir tablo icin ayri ayri class yapip her tablodaki kolonlar icin de propery ler olusturuyoruz . bu dbcontext class ile tablolari bagladigimizda da codefirst islemimiz bitmis oluyor 
 #endregion
 #region CODE FIRST
-
+// Database first yaklasiminin tam tersini yapmaktadir
+// Eger bir projede veritabani henuz olusturulmamis ise bu veritabanini kod kisminda modeller daha sonra bu modele uygun veritabanini sunucuda olusturtur (migrate) bu yaklasima code first denir
+// Kod uzerinden veritabanini modellememizi saglar demistik bu migration islemi databaseye bagliligi azaldir , veritabanina dokunmadan kod uzerinden guncelleme yapilmasini saglar
+// bu durumda yonetim gelistirici tarafindadir , bu yuzden hicbir veritabani bilgisine ihtiyac duymaz  
 #endregion
