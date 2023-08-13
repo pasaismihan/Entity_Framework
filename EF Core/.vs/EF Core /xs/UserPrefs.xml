@@ -1,4 +1,22 @@
 ﻿<Properties StartupConfiguration="{5EA5127D-E773-47BB-990A-9E96962B642B}|Default">
-  <MonoDevelop.Ide.ItemProperties.EF_220Core FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.EF_220Core PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="DatabaseFirst.cs">
+    <Files>
+      <File FileName="Program.cs" Line="38" Column="11" />
+      <File FileName="DatabaseFirst.cs" Line="9" Column="2" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="EF Core " expanded="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>
