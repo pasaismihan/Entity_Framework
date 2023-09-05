@@ -5,6 +5,11 @@ VisualStudioVersion = 25.0.1705.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF Core", "EF Core.csproj", "{5EA5127D-E773-47BB-990A-9E96962B642B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B42102F6-B8CE-4F05-8EB1-815B67769381}"
+	ProjectSection(SolutionItems) = preProject
+		CodeFirst.cs = CodeFirst.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
