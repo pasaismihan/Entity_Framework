@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1705.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeriKaliciligi&VeriEkleme", "VeriKaliciligi&VeriEkleme.csproj", "{7A5B29B7-A7E1-4D7B-B67F-4EE352E7064B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A5B29B7-A7E1-4D7B-B67F-4EE352E7064B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A5B29B7-A7E1-4D7B-B67F-4EE352E7064B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A5B29B7-A7E1-4D7B-B67F-4EE352E7064B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A5B29B7-A7E1-4D7B-B67F-4EE352E7064B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F9119AD8-C25E-4321-BF2F-092D58D6BB7E}
+	EndGlobalSection
+EndGlobal
