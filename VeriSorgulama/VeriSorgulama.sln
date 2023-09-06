@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1705.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeriSorgulama", "VeriSorgulama.csproj", "{28B2A21B-CF8B-45B4-974F-F897F595EEBE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28B2A21B-CF8B-45B4-974F-F897F595EEBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28B2A21B-CF8B-45B4-974F-F897F595EEBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28B2A21B-CF8B-45B4-974F-F897F595EEBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28B2A21B-CF8B-45B4-974F-F897F595EEBE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {12D5404B-3429-4D0F-8093-BCBA1B03FE00}
+	EndGlobalSection
+EndGlobal
