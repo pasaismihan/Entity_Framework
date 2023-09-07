@@ -116,7 +116,37 @@ var like2 = await context.Urunler.Where(u => u.UrunAdi.EndsWith("a")).ToListAsyn
 
 #endregion
 #region Sorgu Sonucu Donusum Fonksiyonlari
+// Bu fonksiyonlar ile sorgu neticesinde getirilen verileri istegimiz dogrultusunda farkli turlerde projeksiyon edebiliyoruz
+// ToDictionaryAsync ---> Sorgu durumunda gelen veriyi bir Dictionary turunde(key - value seklinde veri tutan bir koleksiyon turu) karsilamak istiyorsak kullanilir ,
+// ToList ile ayni amaca hizmet etmektedir yani olusturulan sorguyu execute eder fakat ToList(List<Entity>) List kolensiyonu turunden donduruyor , ToDictionary ise Dictionary turunden bir koleksiyon seklinde dondurur
+var u1 = await context.Urunler.ToDictionaryAsync(u => u.UrunAdi, u => u.Fiyat); // key value pair turunde donduruyor
+/***********************************************************************************************************************************************************************************/
+// ToArrayAsync ---> Olusturulan sorguyu dizi olarak elde eder . yine execute etmek icin kullanilir fakat entity dizisi olarak elde eder
+var u2 = await context.Urunler.ToArrayAsync();
+/***********************************************************************************************************************************************************************************/
+// Select ---> Sorgulama yaparken yalnizca istedigimiz kolonlari elde etmek istersek kullandigimiz fonksiyondur , birden fazla davranisi soz konusudur
+var u3 = await context.Urunler.Select(u => new Urun
+{
+    UrunAdi = u.UrunAdi,
+    Fiyat = u.Fiyat
+}).ToListAsync();
+// Select fonksiyonu gelen verileri farkli turlerde de karsilayabilir , ornegin T turunde veya anonim turde ( anonim tur nesne olusturulurken new Urun(){} yerine direkt new {}  yapabiliriz)
+var u4 = await context.Urunler.Select(u => new
+{
+    UrunAdi = u.UrunAdi,
+    Fiyat = u.Fiyat
+}).ToListAsync();
 
+// SelectMany ---> Select ile ayni amaca hizmet eder , ancak Iliskisel tablolar(one-to-one , many-to-one) neticesinde gelen koleksiyonel verileri de tekillestirip projeksiyon etmemizi saglar
+var u5 = await context.Urunler.Include(u => u.Parcalar).SelectMany(u=>u.Parcalar,(u,p)=> new
+{
+    u.Id,
+    u.Fiyat,
+    p.ParcaAdi,
+}).ToListAsync();  // Urunler entity si icerisinde bulunan ICollection koleksiyonu ile Parca entitiysini bagladik ve icerisindeki verileri urun verileri ile cekebilmek icin Include ve SelectMany fonksiyonlarini kullaniyoruz
+// GroupBy
+
+// Foreach
 #endregion
 #region GroupBy Fonksiyonu
 
@@ -149,6 +179,7 @@ public class Urun
     public int Id { get; set; }
     public string UrunAdi { get; set; }
     public int Fiyat { get; set; }
+    public ICollection<Parca> Parcalar { get; set; }
 
 }
 public class Parca
