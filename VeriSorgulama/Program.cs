@@ -144,19 +144,28 @@ var u5 = await context.Urunler.Include(u => u.Parcalar).SelectMany(u=>u.Parcalar
     u.Fiyat,
     p.ParcaAdi,
 }).ToListAsync();  // Urunler entity si icerisinde bulunan ICollection koleksiyonu ile Parca entitiysini bagladik ve icerisindeki verileri urun verileri ile cekebilmek icin Include ve SelectMany fonksiyonlarini kullaniyoruz
-// GroupBy
-
-// Foreach
 #endregion
 #region GroupBy Fonksiyonu
+// Gruplama  yapmamizi saglayan fonksiyondur
+var datas = await context.Urunler.GroupBy(u => u.Fiyat).Select(group => new
+{
+    Count = group.Count(),
+    Fiyat = group.Key // GroupBy yapacagimiz verileri belirlerken on tanimli olarak Key parametresini kullaniriz
+}).ToListAsync();
+
+var datas2 = await (from urun in context.Urunler group urun by urun.Fiyat into groupbyfiyat select new { Fiyat = groupbyfiyat.Key, Count = groupbyfiyat.Count() }).ToListAsync(); // Query syntaxi ile GroupBy
+
 
 #endregion
 #region Foreach Fonksiyonu
-
+// Bir sorgulama fonksiyonu degildir .
+// Sorgulama neticesinde elde edilen koleksiyonel verilerin uzerinden iterasyonel olarak donmemizi ve verilerin uzerinde islemler yapabilmemizi saglayan fonksiyondur. foreach dongusunun metod halidir
+datas2.ForEach(x =>
+{
+ //   x.Count,
+ //   x.Fiyat
+});
 #endregion
-
-
-
 
 public class ETicaretContext : DbContext
 {
