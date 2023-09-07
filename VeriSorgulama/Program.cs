@@ -79,6 +79,40 @@ UrunParca urunparca = await context.UrunParca.FindAsync(2, 5); // Composite Prim
 
 #endregion
 #region Diger Sorgulama Fonksiyonlari
+// CountAsync ---> Olusturulan sorgu durumunda bize kac adet satir geleceginin bilgisini verir (int)
+var uruns4 = (await context.Urunler.ToListAsync()).Count(); // bu yanlis bir yontemdir cunku ToListAsync diyerek biz ihtiyacimiz olan urun sayisina ek olarak urunleri de execute etmis olduk bu da maliyetlidir
+var uruns5 = await context.Urunler.CountAsync(); // Dogrusu bu sekildedir , CountAsync ile yine execute ediyoruz fakat yalnizca sayisal deger donduruyoruz 
+/***********************************************************************************************************************************************************************************/
+// LongCountAsync ---> Milyonlarca veriyle ugrasiyorsak sorgu yaparken int yetersiz kalacak bu yuzden LongCountAsync kullaniriz long turunde sayisal deger aliriz 
+var uruns6 = await context.Urunler.LongCountAsync(u => u.Fiyat % 7 == 5); // bu sekilde sartli bir sekilde de kac tane veri dondugunu de gorebiliriz
+/***********************************************************************************************************************************************************************************/
+// AnyAsync ---> Sorgu durumunda verinin gelip gelmedigini bize soyleyip boolean donduren fonksiyondur
+var uruns7 = await context.Urunler.AnyAsync();
+/***********************************************************************************************************************************************************************************/
+// MaxAsync ---> Sorguda en yuksek veri hangisiyse onu donduren fonksyion 
+var urun2 = await context.Urunler.MaxAsync(u => u.Id);
+// MinAsync ---> Sorguda en dusuk veri hangisiyse onu donduren fonksyion
+var urun3 = await context.Urunler.MinAsync(u => u.Id);
+/***********************************************************************************************************************************************************************************/
+// Distinct ---> Sorguda cok fazla kayitlar gelirse bunlari tekillestiren bir islevi olan fonksiyondur
+var urun4 = await context.Urunler.Distinct().ToListAsync();
+/***********************************************************************************************************************************************************************************/
+// AllAsync ---> Sorgu durumunda gelen verilerin , verilen sarta uyup uymadigini kontrol eden fonksiyondur . eger tum veriler sarta uyuyorsa true uymuyorsa false donecektir 
+var m = await context.Urunler.AllAsync(u => u.Fiyat > 5000); // urunlerin tamami 5000 den buyuk olmadigi icin False dondurecektir
+/***********************************************************************************************************************************************************************************/
+// SumAsync ---> Toplam fonksiyonudur , ornegin fiyatlarin toplamini alir
+var fiyatToplam = await context.Urunler.SumAsync(u => u.Fiyat);
+
+// AverageAsync ---> ortalama donduren fonksiyondur , ornegin fiyatlarin ortalamasini doner
+var ortalamaFiyat = await context.Urunler.AverageAsync(u => u.Fiyat);
+/***********************************************************************************************************************************************************************************/
+// ContainsAsync ---> Like sarti yani '% ..... %' sorgusu olusturmamizi saglar , where sarti icerisidne yazmamiz gerekir
+var like = await context.Urunler.Where(u => u.UrunAdi.Contains("a")).ToListAsync();
+// StartsWith
+var like1 = await context.Urunler.Where(u => u.UrunAdi.StartsWith("a")).ToListAsync();
+// EndsWith
+var like2 = await context.Urunler.Where(u => u.UrunAdi.EndsWith("a")).ToListAsync();
+/***********************************************************************************************************************************************************************************/
 
 #endregion
 #region Sorgu Sonucu Donusum Fonksiyonlari
